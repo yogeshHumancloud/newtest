@@ -11,13 +11,8 @@ RUN npm install
 
 RUN npm run build
 
-# RUN npm install -g serve
+RUN npm install -g serve
 
-# CMD ["serve", "-s", "build"]
+CMD ["serve", "-s", "build"]
 
-# EXPOSE 3000
-
-FROM nginx:alpine
-COPY default.conf /etc/nginx/conf.d/default.conf
-COPY --from=0 /usr/src/app/build/ /usr/share/nginx/html/
-#CMD ["nginx", "-s", "reload"]
+EXPOSE 3000
